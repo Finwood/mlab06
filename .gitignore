@@ -1,0 +1,15 @@
+*.pdf
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.pdf_tex
+revision.*
+res/
+!protokoll.pdf

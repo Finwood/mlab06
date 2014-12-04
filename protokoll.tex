@@ -1,0 +1,142 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage[fleqn]{amsmath}
+\usepackage[a4paper, left=30mm, right=25mm, bottom=25mm, top=30mm]{geometry}
+\usepackage{tipa}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage[labelfont=bf]{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{tocloft}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage[exponent-product = \cdot]{siunitx}
+\usepackage{cancel}
+\sisetup{per-mode=fraction}
+
+%\usepackage{pythontex}
+\graphicspath{ {.} {img/} }
+
+\usepackage[usenames, divpsnames]{xcolor}
+\definecolor{footer-gray}{gray}{0.5}
+
+\title{Versuchstitel}
+\date{2014-11-05}
+
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+
+\pagestyle{fancy}
+\linespread{1.3} % entspricht 1.5-fachem Zeilenabstand
+\setlength{\parskip}{10pt}
+\setlength{\parindent}{0mm}
+\setlength{\mathindent}{10mm}
+
+% enable draft mode --> revision is being shown
+\newcount\draft\draft=1
+
+\ifnum\draft=1
+	\IfFileExists{revision.tex}{
+		\include{revision}
+	}{
+		\newcommand{\Revision}{}
+	}
+\fi
+
+\lhead{Versuchstitel}
+\chead{}
+\rhead{\thepage}
+
+\ifnum\draft=1
+	\lfoot{\textcolor{footer-gray}{\today; rev. \Revision}}
+\else
+	\lfoot{}
+\fi
+\cfoot{}
+\rfoot{}
+
+% Page Numbering
+%\setcounter{tocdepth}{3}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+%\usepackage[backend=biber, style=alphabetic-verb, sortlocale=de_DE, natbib=false, url=true, doi=true, eprint=true]{biblatex}
+%\addbibresource{sources.bib}
+
+\begin{document}
+
+\thispagestyle{empty}
+\newgeometry{left=3cm, right=3cm}
+\begin{center}
+\vspace*{20mm}
+
+\Large
+\textbf{Grundpraktikum Maschinenlabor} \\
+\vspace{10mm}
+\Huge
+\textbf{\textsf{Versuchstitel}} \\
+\vspace{10mm}
+\large
+\textbf{\textsf{Praktikumsbericht}} \\
+\textbf{\textsf{Mittwoch, x. November 2014}} \\
+\textbf{\textsf{Gruppe 6}} \\
+\ifnum\draft=1
+	\textsf{\textcolor{footer-gray}{Version \textit{\Revision} vom \today}} \\
+\fi
+
+\vspace{40mm}
+\begin{tabular}{rcl}
+Ole Brinkmann & 406572 & obr11@tu-clausthal.de \\[4mm]
+Lasse Fröhner & 420013 & lf12@tu-clausthal.de \\[4mm]
+Sebastian Löhr & 341792 & swl@tu-clausthal.de \\[4mm]
+Anna Stillfried & 421777 & apmsr12@tu-clausthal.de \\[4mm]
+\end{tabular}
+
+\end{center}
+
+\pagebreak
+\restoregeometry
+
+\addtocontents{toc}{\protect\thispagestyle{fancy}}
+\addtocontents{lof}{\protect\thispagestyle{fancy}}
+\pagenumbering{Roman}
+\tableofcontents
+%\vspace{20mm}
+%\listoffigures
+%\vspace{20mm}
+%\listoftables
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Einleitung}
+
+\section{Aufbau}
+
+\section{Durchführung}
+
+\section{Auswertung}
+
+\section{Fazit}
+
+%\pagebreak
+%\nocite{*}
+%\sloppy % großzügige Wortabstände zulassen --> URLs werden umgebrochen
+%\printbibliography
+
+
+\end{document}
+
