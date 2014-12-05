@@ -72,10 +72,10 @@ for logs in logset:
 		df.phi -= (phimin + amplitude / 2.)
 
 		# as seen at http://connor-johnson.com/2014/02/01/smoothing-with-exponentially-weighted-moving-averages/
-		ewma_span = 5
+		ewma_span = 8
 		np_phi = df.phi.values
-		fwd = ewma(np_phi, span=ewma_span)
-		bwd = ewma(np_phi[::-1], span=ewma_span)
+		fwd = ewma(np_phi, span=ewma_span) # take EWMA in fwd direction
+		bwd = ewma(np_phi[::-1], span=ewma_span) # take EWMA in bwd direction
 		c = np.vstack(( fwd, bwd[::-1] )) # lump fwd and bwd together
 		df['phi_corr'] = np.mean( c, axis=0 ) # average
 
@@ -84,8 +84,8 @@ for logs in logset:
 		ax = fig.add_subplot(111)
 		ax.tick_params(pad=10)
 		ax.plot(df.TIME, df.CH1, color='r', linestyle='-')
-		ax.plot(df.TIME, df.phi, color='b', linestyle='-')
-		ax.plot(df.TIME, df.phi_corr, color='g', linestyle='-')
+#		ax.plot(df.TIME, df.phi, color='b', linestyle='-')
+		ax.plot(df.TIME, df.phi_corr, color='b', linestyle='-')
 		for foo in t_max_i:
 			ax.axvline(foo, color='g')
 
