@@ -11,5 +11,4 @@
 *.run.xml
 *.pdf_tex
 revision.*
-res/
 !protokoll.pdf
