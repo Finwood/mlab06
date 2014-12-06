@@ -184,6 +184,33 @@ Die gesammte Strecke, die vom Antriebshebel abgefahren wird, ergibt sich zu $2 \
 
 Der insgesamt vom Antriebshebel überstrichene Winkel $\gamma$ ergibt sich somit zu $\SI{21,086}{\degree}$
 
+% 2.1 c fehlt noch
+
+\subsection{Identifikation der Systemparameter} % ich habe jetzt einfach nur die Berechnung des TRägheitsmoments eingebaut...
+
+Um das Tr\"agheitsmoment der Alum\"ainiumscheibe zu berechnen, sehen wir diese als Zylinder an. Die Formel zur Berechnung des Tr\"ogheitsmoments entnehmen wir der Literatur.
+
+\begin{equation}
+	J_z = \frac{1}{2} \cdot M \cdot R^2
+\end{equation}
+
+Mit:
+
+\begin{gather}
+	R = \SI{0,2}{\meter}
+	h = \SI{9,4 \cdot 10^{-3}}{\meter}
+	\rho = \SI{2,7 \cdot 10^6}{\gram\per\cubic\meter}\\
+	M = \rho \cdot \pi \cdot R^2 \cdot h 
+	= \SI{2,7 \cdot 10^6}{\gram\per\cubic\meter} \cdot \pi \cdot {\SI{0,2}{\meter}}^2 \cdot 
+	\SI{9,4 \cdot 10^{-3}}{\meter} = \SI{3,189}{\kilogram}
+\end{gather}
+
+\begin{equation}
+	J_z = \frac{1}{2} \cdot \SI{3,189}{\kilogram} \cdot {\SI{0,2}{\meter}}^2 = \SI{0,06}{\joule}
+\end{equation}
+		
+Somit ergibt sich das Tr\"agheitsmoment der Aluminiumscheibe zu $\SI{0,06}{\joule}$
+
 \section{Fehlerbetrachtung}
 Hinsichtlich der Erfassung und Protokollierung der Messwerte der
 Frequenzganganalyse können verschiedene Fehler auftreten. Die verschiedenen Fehler
