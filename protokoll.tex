@@ -165,8 +165,7 @@ anschließend die die Amplitude und Frequenz  genau ermittelt sowie eine Momenta
 
 \subsection{Rekonstruktion des Eingangssignal aus den Messungen}
 
-Zunächst wird der Zusammenhang zwischen den tatsächlichen Zeitverläufen des Auslenkungswinkels $\alpha \left( t \right)$ und dem gemessenen
-Eingangssignal hergestellt.
+Zunächst wird der Zusammenhang zwischen den tatsächlichen Zeitverläufen des Auslenkungswinkels $\alpha \left( t \right)$ und dem gemessenen Eingangssignal hergestellt.
 
 Der Auslenkungswinkel $\alpha \left( t \right)$ des Antriebshebels verändert seine Maximalauslenkung $\gamma$ während des Versuchs nicht, jedoch wird die Drehzahl beeinflusst.
 Demzufolge ändert sich die Winkelgeschwindigkeit bzw. die Zeit die benötigt wird um den Winkel $\gamma$ zu überstreichen.
@@ -191,11 +190,57 @@ Der insgesamt vom Antriebshebel überstrichene Winkel $\gamma$ ergibt sich somit
 % 2.1 c fehlt noch
 % eingetragen, vorletzter Absatz
 
+\subsection{Auswertung der Ergebnisse im Bode-Diagramm}
+
+Aus den Messschrieben des Oszilloskops lassen sich für jeden Betriebspunkt Amplitude und Phasenverschiebung des Federpendels ermitteln.
+Zur Darstellung in einem Bode-Diagramm muss die Amplitude jedoch noch normiert und in die logarithmische Einheit Dezibel~(\si{\decibel}) umgerechnet werden:
+\begin{equation}
+	A_{\si{\decibel}} = \left.\frac{A_{aus}}{A_{ein}}\right\rvert_{\si{\decibel}}
+		= \left.\frac{A_{aus}}{\SI{10.54}{\degree}}\right\rvert_{\si{\decibel}}
+		= \left.A_{rel}\right\rvert_{\si{\decibel}}
+		= 20 \cdot 10^{A_{rel}} \, \si{\decibel}
+\end{equation}
+
+In \textbf{Tabelle~\ref{tab:messwerte}} sind die ermittelten Messdaten zusammengestellt.
+\begin{table}[h]
+	\centering
+	\caption{Messwerte}
+	\label{tab:messwerte}
+	\begin{tabular}{lrrrr}
+	\toprule
+	geplant           & $\omega$&     $A$ &   $A_{\si{\decibel}}$ & $\Delta \varphi$ \\
+	  & \si{\radian\per\second} & \si{\degree} & \si{\decibel} & \si{\degree} \\
+	\midrule
+	$\omega_n$        &  15.09 &  53.66 &  14.14 &  -86.5 \\
+	$\omega_r$        &  15.06 &  50.30 &  13.57 &  -82.9 \\
+	\SI{0.5}{\hertz}  &   3.36 &   9.93 &  -0.52 &   -2.3 \\
+	\SI{0.7}{\hertz}  &   4.70 &  10.28 &  -0.22 &    1.1 \\
+	\SI{1.0}{\hertz}  &   6.71 &  11.37 &   0.65 &   -4.6 \\
+	\SI{1.3}{\hertz}  &   8.56 &  13.60 &   2.22 &   -8.8 \\
+	\SI{1.5}{\hertz}  &   9.86 &  16.17 &   3.72 &  -10.2 \\
+	\SI{2.0}{\hertz}  &  12.91 &  31.23 &   9.44 &  -23.7 \\
+	\SI{2.5}{\hertz}  &  15.85 &  43.37 &  12.29 & -120.0 \\
+	\SI{3.0}{\hertz}  &  18.81 &  14.99 &   3.06 & -155.2 \\
+	\SI{4.0}{\hertz}  &  24.71 &   5.65 &  -5.42 & -160.2 \\
+	\SI{5.0}{\hertz}  &  30.69 &   2.92 & -11.14 & -168.6 \\
+	\bottomrule
+	\end{tabular}
+\end{table}
+
+Trägt man in einem Diagramm mit logarithmischer x-Achse die logarithmische normierte Amplitude $A_{\si{\decibel}}$ sowie die Phasenverschiebung $\Delta \varphi$ über der Kreisfrequenz $\omega$ auf erhält man ein Bode-Diagramm, dargestellt in \textbf{Abbildung~\ref{fig:plot-bode}}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{bode.pdf}
+\caption{Bode-Diagramm}
+\label{fig:plot-bode}
+\end{figure}
+
 \subsection{Identifikation der Systemparameter} % ich habe jetzt einfach nur die Berechnung des Trägheitsmoments eingebaut...
 
 Um das Trägheitsmoment der Aluminiumscheibe zu berechnen, sehen wir diese als Zylinder an.
 Nach \cite{tbmetall}  gilt:
 \begin{equation}
+	\label{eq:J}
 	J_z = \frac{1}{2} \cdot M \cdot R^2
 \end{equation}
 
@@ -203,18 +248,23 @@ Mit eingesetzten Werten ergibt sich somit:
 \begin{gather}
 	R = \SI{0.2}{\metre} \\
 	h = \SI{9.4e-3}{\metre} \\
-	\rho = \SI{2.7e6}{\gram\per\cubic\metre}\\
-	M = \rho \cdot \pi \cdot R^2 \cdot h
-	= \SI{2.7e6}{\gram\per\cubic\metre} \cdot \pi \cdot \left( \SI{0.2}{\metre} \right)^2 \cdot \SI{9.4e-3}{\metre}
-	= \SI{3.189}{\kilogram}
+	\rho = \SI{2.7e6}{\gram\per\cubic\metre}
 \end{gather}
+\begin{align}
+	M &= \rho \cdot \pi \cdot R^2 \cdot h \\
+	&= \SI{2.7e6}{\gram\per\cubic\metre} \cdot \pi \cdot \left( \SI{0.2}{\metre} \right)^2 \cdot \SI{9.4e-3}{\metre} \\
+	&= \SI{3.189}{\kilogram}
+\end{align}
 
+Eingesetzt in (\ref{eq:J}) erhält man für das Trägheitsmoment $J_{z}$:
 \begin{equation}
 	J_z = \frac{1}{2} \cdot \SI{3.189}{\kilogram} \cdot {\SI{0.2}{\metre}}^2 = \SI{0.06}{\joule}
 \end{equation}
 
 %Somit ergibt sich das Trägheitsmoment der Aluminiumscheibe zu $\SI{0.06}{\joule}$
-Das Trägheitsmoment der Aluminiumscheibe beträgt $\SI{63.79e-3}{\joule}$.
+Das Trägheitsmoment der Aluminiumscheibe beträgt somitt $J_{z} = \SI{63.79e-3}{\joule}$.
+
+
 
 \section{Fehlerbetrachtung}
 Hinsichtlich der Erfassung und Protokollierung der Messwerte der
