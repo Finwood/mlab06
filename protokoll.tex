@@ -73,6 +73,8 @@
     urlcolor=black
 }
 
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+
 \usepackage[backend=biber, style=alphabetic-verb, sortlocale=de_DE, natbib=false, url=true, doi=true, eprint=true]{biblatex}
 \addbibresource{sources.bib}
 
@@ -201,6 +203,8 @@ Zur Darstellung in einem Bode-Diagramm muss die Amplitude jedoch noch normiert u
 		= 20 \cdot 10^{A_{rel}} \, \si{\decibel}
 \end{equation}
 
+Zur Glättung der Messwerte wurde ein exponentiell gewichteter laufender Mittelwert verwendet, wobei das Verfahren zur Korrektur einer dabei auftretenden Phasenverschiebung einmal vorwärts und einmal rückwärts angewendet wurde, \cite{ewma}.
+
 In \textbf{Tabelle~\ref{tab:messwerte}} sind die ermittelten Messdaten zusammengestellt.
 \begin{table}[h]
 	\centering
@@ -258,11 +262,39 @@ Mit eingesetzten Werten ergibt sich somit:
 
 Eingesetzt in (\ref{eq:J}) erhält man für das Trägheitsmoment $J_{z}$:
 \begin{equation}
-	J_z = \frac{1}{2} \cdot \SI{3.189}{\kilogram} \cdot {\SI{0.2}{\metre}}^2 = \SI{0.06}{\joule}
+	J_z = \frac{1}{2} \cdot \SI{3.189}{\kilogram} \cdot {\SI{0.2}{\metre}}^2 = \SI{63.79e-3}{\kilogram\square\metre}
 \end{equation}
 
-%Somit ergibt sich das Trägheitsmoment der Aluminiumscheibe zu $\SI{0.06}{\joule}$
-Das Trägheitsmoment der Aluminiumscheibe beträgt somitt $J_{z} = \SI{63.79e-3}{\joule}$.
+%Somit ergibt sich das Trägheitsmoment der Aluminiumscheibe zu $\SI{0.06}{\kilogram\square\metre}$
+Das Trägheitsmoment der Aluminiumscheibe beträgt somitt $J_{z} = \SI{63.79e-3}{\kilogram\square\metre}$.
+
+Nach \cite{skript} gilt: \todo{Einheiten?}
+\begin{equation}
+	D = \sqrt{ \frac{1 - \left( \frac{\omega_{r}}{\omega_{n}} \right)^{2}}{2} }
+\end{equation}
+
+Setzt man die experimentell ermittelten Werte für die Kennkreisfrequenz $\omega_{n}$ und die Resonanzfrequenz $\omega_{n}$ ein (\textbf{Tabelle~\ref{tab:messwerte}}), ergibt sich eine Dämpfung von $D = 0.045$. Beim Vergleich des Bode-Diagramms mit Abbildungen in der Literatur erscheint dieser Wert plausibel.
+
+Setzt man die Dämpfung und die Kennkreisfrequenz in die Übertragungsfunktion eines PT2s-Systems mit einer stationären Verstärkung von $K_{P} = 1$ ein, erhält man die Übertragungsfunktion des verwendeten Federpendels im Bildbereich:
+\begin{equation}
+	\label{eq:Gs}
+	G \left( s \right) = \frac{K_{P}}{\frac{1}{\omega_{n}^{2}} s^{2} + \frac{2 D}{\omega_{n}} s + 1} = \frac{1}{0.00439 s^{2} + 0.00591 s + 1}
+\end{equation}
+
+In \textbf{Abbildung~\ref{fig:plot-bode}} ist neben den Messpunkten ebenfalls der Frequenzgang der in (\ref{eq:Gs}) ermittelten Übertragungsfunktion dargestellt.
+Es ist ersichtlich, dass das System in Wirklichkeit stärker gedämpft ist als das aufgestellte Modell zeigt. \todo{warum?}
+
+Aus \cite{skript} ist bekannt:
+\begin{gather}
+	\frac{1}{\omega_{n}^{2}} = \frac{k}{J} \\
+	\frac{2 D}{\omega_{n}} = \frac{d}{k}
+\end{gather}
+
+Umgestellt und eingesetzt ergibt sich: \todo{Irgendwie sind die Einheiten komisch}
+\begin{gather}
+	k = J \cdot \omega_{n}^{2} = \SI{63.79e-3}{\kilogram\square\metre} \cdot \left( \SI{15.09}{\radian\per\second} \right)^{2} = \\
+	d = \frac{2 \cdot D \cdot k}{\omega_{n}}
+\end{gather}
 
 
 
