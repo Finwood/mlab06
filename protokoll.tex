@@ -168,48 +168,53 @@ anschließend die die Amplitude und Frequenz  genau ermittelt sowie eine Momenta
 Zunächst wird der Zusammenhang zwischen den tatsächlichen Zeitverläufen des Auslenkungswinkels $\alpha \left( t \right)$ und dem gemessenen
 Eingangssignal hergestellt.
 
-Der Auslenkungswinkel $\alpha \left( t \right)$ des Antriebshebels verändert nicht sein Maximum $\gamma$ während des Versuchs, jedoch wird die Drehzahl
-verringert bzw. vergrößert. Demzufolge ändert sich die Winkelgeschwindigkeit bzw. die Zeit die benötigt wird um den Winkel $\gamma$
-zu überstreichen. Das Eingangssignal kann als ideale Sinusschwingung angenommen werden.
+Der Auslenkungswinkel $\alpha \left( t \right)$ des Antriebshebels verändert seine Maximalauslenkung $\gamma$ während des Versuchs nicht, jedoch wird die Drehzahl beeinflusst.
+Demzufolge ändert sich die Winkelgeschwindigkeit bzw. die Zeit die benötigt wird um den Winkel $\gamma$ zu überstreichen.
+Das Eingangssignal kann als ideale Sinusschwingung angenommen werden.
 Es wird folglich die Periodendauer verändert. Die daraus entstehenden veränderlichen Zeitverläufe des Auslenkungswinkels $\alpha \left( t \right)$ sollen gemessen werden.
-Dies geschieht über einen Impulsgeber, welcher immer dann einen Impuls abgibt, wenn der Antriebshebel die maximale Auslenkung erreicht hat.
-Das gemessene Eingangssignal gibt also nur Aussage über die Periodendauer der Sinusschwingung nicht über dessen Amplitude.
+
+%Dies geschieht über einen Impulsgeber, welcher immer dann einen Impuls abgibt, wenn der Antriebshebel die maximale Auslenkung erreicht hat.
+Dies geschieht über einen Impulsgeber, welcher einen Impuls abgibt sobald der Hebel vorbeistreicht.
+Da dieser Impulsgeber sehr nah am oberen Totpunkt des Hebels montiert ist, gibt es dadurch jede Periode zwei direkt aufeinander folgende Pulse.
+Wird der Mittelwert der Zeitpunkte dieser Pulse gebildet, lässt sich so unter Annahme einer konstanten Winkelgeschwindigkeit der Zeitpunkt der maximalen Amplitude des Eingangssignals ermitteln.
+Das gemessene Eingangssignal gibt lediglich Aussage über die Periodendauer der Sinusschwingung nicht über dessen Amplitude.
 
 Nun wird der maximale Auslenkungswinkel $\gamma$ berechnet. Es wird angenommen, dass die Bewegung des Antriebshebels linear verläuft und nicht als Kreisbogen.
 Die gesammte Strecke, die vom Antriebshebel abgefahren wird, ergibt sich zu $2 \cdot r_1$. Nun kann der Winkel $\gamma$ errechnet werden.
 
 \begin{equation}
-	\frac{\gamma}{2} = \arcsin{\frac{r_1}{r_2}} = \arcsin{\frac{0,043}{0,235}} =  \SI{10,54}{\degree}
+	\frac{\gamma}{2} = \arcsin{\frac{r_1}{r_2}} = \arcsin{\frac{0.043}{0.235}} =  \SI{10.54}{\degree}
 \end{equation}
 
-Der insgesamt vom Antriebshebel überstrichene Winkel $\gamma$ ergibt sich somit zu $\SI{21,086}{\degree}$
+Der insgesamt vom Antriebshebel überstrichene Winkel $\gamma$ ergibt sich somit zu $\SI{21.086}{\degree}$
 
 % 2.1 c fehlt noch
+% eingetragen, vorletzter Absatz
 
-\subsection{Identifikation der Systemparameter} % ich habe jetzt einfach nur die Berechnung des TRägheitsmoments eingebaut...
+\subsection{Identifikation der Systemparameter} % ich habe jetzt einfach nur die Berechnung des Trägheitsmoments eingebaut...
 
-Um das Tr\"agheitsmoment der Alum\"ainiumscheibe zu berechnen, sehen wir diese als Zylinder an. Die Formel zur Berechnung des Tr\"ogheitsmoments entnehmen wir der Literatur.
-
+Um das Trägheitsmoment der Aluminiumscheibe zu berechnen, sehen wir diese als Zylinder an.
+Nach \cite{tbmetall}  gilt:
 \begin{equation}
 	J_z = \frac{1}{2} \cdot M \cdot R^2
 \end{equation}
 
-Mit:
-
+Mit eingesetzten Werten ergibt sich somit:
 \begin{gather}
-	R = \SI{0,2}{\meter}
-	h = \SI{9,4 \cdot 10^{-3}}{\meter}
-	\rho = \SI{2,7 \cdot 10^6}{\gram\per\cubic\meter}\\
-	M = \rho \cdot \pi \cdot R^2 \cdot h 
-	= \SI{2,7 \cdot 10^6}{\gram\per\cubic\meter} \cdot \pi \cdot {\SI{0,2}{\meter}}^2 \cdot 
-	\SI{9,4 \cdot 10^{-3}}{\meter} = \SI{3,189}{\kilogram}
+	R = \SI{0.2}{\metre} \\
+	h = \SI{9.4e-3}{\metre} \\
+	\rho = \SI{2.7e6}{\gram\per\cubic\metre}\\
+	M = \rho \cdot \pi \cdot R^2 \cdot h
+	= \SI{2.7e6}{\gram\per\cubic\metre} \cdot \pi \cdot \left( \SI{0.2}{\metre} \right)^2 \cdot \SI{9.4e-3}{\metre}
+	= \SI{3.189}{\kilogram}
 \end{gather}
 
 \begin{equation}
-	J_z = \frac{1}{2} \cdot \SI{3,189}{\kilogram} \cdot {\SI{0,2}{\meter}}^2 = \SI{0,06}{\joule}
+	J_z = \frac{1}{2} \cdot \SI{3.189}{\kilogram} \cdot {\SI{0.2}{\metre}}^2 = \SI{0.06}{\joule}
 \end{equation}
-		
-Somit ergibt sich das Tr\"agheitsmoment der Aluminiumscheibe zu $\SI{0,06}{\joule}$
+
+%Somit ergibt sich das Trägheitsmoment der Aluminiumscheibe zu $\SI{0.06}{\joule}$
+Das Trägheitsmoment der Aluminiumscheibe beträgt $\SI{63.79e-3}{\joule}$.
 
 \section{Fehlerbetrachtung}
 Hinsichtlich der Erfassung und Protokollierung der Messwerte der
