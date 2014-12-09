@@ -155,22 +155,6 @@ als Sinusschwingung angegeben wird. Dies liegt an den verschiedenen Messaufbaute
 die Bewegung des Antriebshebels auf, sobald dieser seinen maximalen Ausschlag erreicht hat. Daraus kann im Nachhinein jedoch die Sinusschwingung
 rekonstruiert werden. Das Ausgangssignal wird durch einen inkrementalen optoelektronischen Drehgeber aufgezeichnet.
 
-
-\section{Durchführung}
-Zu Beginn des Versuchs werden zusätzlich zu der Resonanz und der Kennkreisfrequenz noch acht weitere Messpunkte festgelegt und die Einschwingzeit ermittelt.
-Dazu wird die Schwungmasse mit der Hand ausgelenkt und die Zeit bis zum Stillstand auf dem Oszilloskop abgelesen (vgl. \textbf{Abbildung~\ref{fig:plot-ausschwingen}})
-Wichtig ist nun, dass während des Versuchs, erst nach dieser, ermittelten Einschwingzeit, die Werte auf dem Oszilloskop abgelesen werden, also das System sich im 
-eingeschwungenen Zustand befindet. 
-
-Nun wird das Einstellrad für die Drehzahl des Gleichstrommotors auf null gedreht und der Gleichstrommotor eingeschaltet. Anschließend wird zur
-Ermittlung der Resonanzfrequenz, das Einstellrädchen langsam in Richtung steigender Drehzahl gedreht, bis die maximale Amplitude erreicht wird, welche auf
-dem Oszilloskop abgelesen werden kann. Zur Ermittlung der Kennkreisfrequenz wird ähnlich vorgegangen: Experimentell wird jene Drehzahl gesucht, bei welcher 
-zwischen Eingangs- und Ausgangssignal ein Phasenverschub von  \SI{90}{\degree} besteht, dargestellt in \textbf{Abbildung~\ref{fig:plot-kennkreis}}.
-
-Wurden diese beiden Winkelgeschwindigkeiten ermittelt, so werden nun nacheinander die unterschiedlichen, vorher festgelegten, Frequenzen eingestellt und
-anschließend die Amplitude und die Periodendauer auf dem Oszilloskop abgelesen. Aus der Periodendauer wird die reale Winkelgeschwindigkeit errechent $\omega_{real} = \frac{2\pi}{T}$, 
-welche durch Ungenauigkeiten in der manuellen Einstellung von dem geplanten Wert abweichen kann. Eine Momentaufnahme zur späteren Auswertung wird gespeichert.
-
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{ausschwingen.pdf}
@@ -178,7 +162,27 @@ welche durch Ungenauigkeiten in der manuellen Einstellung von dem geplanten Wert
 \label{fig:plot-ausschwingen}
 \end{figure}
 
-%nun befindet sich das Kennkreisfrequenz-Diagramm an sich an der falschen Stelle...
+\section{Durchführung}
+Zu Beginn des Versuchs werden zusätzlich zu der Resonanz und der Kennkreisfrequenz noch acht weitere Messpunkte festgelegt und die Einschwingzeit ermittelt.
+Dazu wird die Schwungmasse mit der Hand ausgelenkt und die Zeit bis zum Stillstand auf dem Oszilloskop abgelesen (vgl. \textbf{Abbildung~\ref{fig:plot-ausschwingen}})
+Wichtig ist nun, dass während des Versuchs, erst nach dieser, ermittelten Einschwingzeit, die Werte auf dem Oszilloskop abgelesen werden, also das System sich im
+eingeschwungenen Zustand befindet.
+
+Nun wird das Einstellrad für die Drehzahl des Gleichstrommotors auf null gedreht und der Gleichstrommotor eingeschaltet. Anschließend wird zur
+Ermittlung der Resonanzfrequenz, das Einstellrädchen langsam in Richtung steigender Drehzahl gedreht, bis die maximale Amplitude erreicht wird, welche auf
+dem Oszilloskop abgelesen werden kann. Zur Ermittlung der Kennkreisfrequenz wird ähnlich vorgegangen: Experimentell wird jene Drehzahl gesucht, bei welcher
+zwischen Eingangs- und Ausgangssignal ein Phasenverschub von  \SI{90}{\degree} besteht, dargestellt in \textbf{Abbildung~\ref{fig:plot-kennkreis}}.
+
+Wurden diese beiden Winkelgeschwindigkeiten ermittelt, so werden nun nacheinander die unterschiedlichen, vorher festgelegten, Frequenzen eingestellt und
+anschließend die Amplitude und die Periodendauer auf dem Oszilloskop abgelesen. Aus der Periodendauer wird die reale Winkelgeschwindigkeit errechent $\omega_{real} = \frac{2\pi}{T}$,
+welche durch Ungenauigkeiten in der manuellen Einstellung von dem geplanten Wert abweichen kann. Eine Momentaufnahme zur späteren Auswertung wird gespeichert.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{kennkreis.pdf}
+\caption{Messdatenschrieb bei Kennkreisfrequenz $\omega_{n}$}
+\label{fig:plot-kennkreis}
+\end{figure}
 
 \section{Auswertung}
 
@@ -205,16 +209,6 @@ Die gesammte Strecke, die vom Antriebshebel abgefahren wird, ergibt sich zu $2 \
 \end{equation}
 
 Der insgesamt vom Antriebshebel überstrichene Winkel $\gamma$ ergibt sich somit zu $\SI{21.086}{\degree}$
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{kennkreis.pdf}
-\caption{Messdatenschrieb bei Kennkreisfrequenz $\omega_{n}$}
-\label{fig:plot-kennkreis}
-\end{figure}
-
-% 2.1 c fehlt noch
-% eingetragen, vorletzter Absatz
 
 \subsection{Auswertung der Ergebnisse im Bode-Diagramm}
 
