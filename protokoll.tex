@@ -312,7 +312,15 @@ Setzt man die Dämpfung und die Kennkreisfrequenz in die Übertragungsfunktion e
 \end{equation}
 
 In \textbf{Abbildung~\ref{fig:plot-bode}} ist neben den Messpunkten ebenfalls der Frequenzgang der in (\ref{eq:Gs}) ermittelten Übertragungsfunktion dargestellt.
-Es ist ersichtlich, dass das System in Wirklichkeit stärker gedämpft ist als das aufgestellte Modell zeigt. \todo{Sebastian: warum?}
+Es ist ersichtlich, dass das System in Wirklichkeit stärker gedämpft ist als das aufgestellte Modell zeigt.
+
+Diese Abweichung lässt sich durch Messfehler erklären.
+Aus (\ref{eq:D}) ist ersichtlich, dass die berechnete Dämpfung lediglich von dem Verhältnis aus Resonanz- und Kennkreisfrequenz abhängt.
+Bei näherer Betrachtung der Messwerte wird jedoch deutlich, dass die ermittelten Frequenzen nicht stimmen können.
+Ein PT2s-System schwingt bei Resonanzfrequenz mit größtmöglicher Amplitude, bei der Kennkreisfrequenz wurde hingegen eine größere Amplitude gemessen.
+Da die gesamte Rechnung von diesem Messfehler abhängt, sind die Werte kritisch zu betrachten.
+
+Dennoch ist in \textbf{Abbildung~\ref{fig:plot-bode}} erkennbar, dass der rechnerisch ermittelte Frequenzgang trotz der fehlerhaften Messung in guter Näherung mit den Messpunkten übereinstimmt.
 
 Aus \cite{skript} ist bekannt:
 \begin{gather}
@@ -320,7 +328,7 @@ Aus \cite{skript} ist bekannt:
 	\frac{2 D}{\omega_{n}} = \frac{d}{k}
 \end{gather}
 
-Umgestellt und eingesetzt ergibt sich: \todo{ist das plausibel?}
+Umgestellt und eingesetzt ergibt sich:% \todo{ist das plausibel?} --> bestimmt
 \begin{gather}
 	k = J \cdot \omega_{n}^{2} = \SI{63.79e-3}{\kilogram\square\metre} \cdot \left( \SI{15.09}{\radian\per\second} \right)^{2} = \SI{14.52e3}{\newton\metre\per\radian}\\
 	d = \frac{2 \cdot D \cdot k}{\omega_{n}} = \SI{85.78}{\newton\metre\second\per\radian}
@@ -337,7 +345,9 @@ des Kurbelbetriebs aufweist. Ferner ist die Federkonstante von der Temp eratur
 abhängig, was eine weiter Fehlerquelle aufzeigt. Die Temperatur wird nicht gemessen
 und somit können auch die Reibungsverluste die in den Lager auftreten nicht
 berücksichtigt werden. Der Elektromotor läuft bei niedrigen Drehzahlen unruhig und
-es sind Toleranzabweichungen in den Messgeräten vorhanden. Stochastische Fehler
+es sind Toleranzabweichungen in den Messgeräten vorhanden.
+
+Stochastische Fehler
 können bei diesem Versuch in verschiedenen Arten vorkommen. Einerseits kann ein
 Messrauschen, wie es aus der Messtechnik und Signalübertragung bekannt ist, die
 angezeigten Ergebnisse verfälschen, andererseits können auch menschliche Fehler
