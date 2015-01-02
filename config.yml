@@ -3,7 +3,8 @@
 make_build_targets:
     - protokoll.pdf
 
-additional_targets:
+target_files:
+    - protokoll.pdf
     - protokoll.log
     - calc/bode.pdf
 
