@@ -1,0 +1,10 @@
+# sample configuration
+
+make_build_targets:
+    - protokoll.pdf
+
+additional_targets:
+    - protokoll.log
+    - calc/bode.pdf
+
+stream_log: yes
